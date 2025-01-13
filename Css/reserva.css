@@ -1,0 +1,675 @@
+/* ===== Carrusel ===== */
+.carousel1 {
+    position: relative;
+    width: 100vw; /* Ocupa todo el ancho de la pantalla */
+    height: 500px; /* Ajusta la altura según necesidad */
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #f5f5f5; /* Color de fondo de respaldo */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: 300%; /* Cada imagen ocupa todo el ancho */
+}
+
+.carousel-slide {
+    flex: 1 0 100vw; /* Cada imagen ocupa todo el ancho de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide img {
+    width: 100vw; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ajusta la altura según el carrusel */
+    object-fit: cover; /* Cubre el espacio sin distorsión */
+}
+
+/* ===== Indicadores del carrusel (opcional) ===== */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+    background-color: white;
+}
+
+/* Animación automática */
+@keyframes slideAnimation {
+    0%, 33% {
+        transform: translateX(0);
+    }
+    33.33%, 66.33% {
+        transform: translateX(-100vw);
+    }
+    66.66%, 100% {
+        transform: translateX(-200vw);
+    }
+}
+
+.carousel-track {
+    animation: slideAnimation 9s infinite;
+}
+/* ===== Títulos ===== */
+.reservas-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin: 20px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ===== Mensajes de Éxito ===== */
+.success-message {
+    color: #28a745;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+/* ===== Tabla de Reservas ===== */
+.reservas-table-container {
+    overflow-x: auto;
+    margin: 20px auto;
+    max-width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.reservas-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.reservas-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.reservas-table tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    font-style: italic;
+    padding: 10px;
+}
+
+/* ===== Botones de Acciones ===== */
+.btn-approve {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-approve:hover {
+    background-color: #218838;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-cancel:hover {
+    background-color: #a71d2a;
+}
+/* ===== Botones de Navegación ===== */
+.nav-reservas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background-color: #0f0f0f; /* Ajustado al esquema de colores */
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background-color: #3a3737; /* Cambio sutil al pasar el cursor */
+    transform: scale(1.05);
+}
+
+/* ===== Contenedor Principal ===== */
+.main-container {
+    margin-top: 80px; /* Para evitar que el encabezado cubra contenido */
+    margin-bottom: 80px; /* Espacio para el pie de página */
+}
+
+/* ===== Tabla ===== */
+.reservas-table-container {
+    overflow-x: auto;
+    overflow-y: auto; /* Habilitar desplazador vertical */
+    margin: 20px auto;
+    max-width: 100%;
+    background: #fcf9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #030303;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.reservas-table th {
+    background-color: #494848;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.reservas-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.reservas-table tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    font-style: italic;
+    padding: 10px;
+}
+/* ===== Contenedor Principal ===== */
+.contenedor-alquiler {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* ===== Formulario de Alquiler ===== */
+.formulario-alquiler {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 350px;
+    max-width: 500px;
+    font-size: 0.9rem;
+}
+
+.formulario-alquiler h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.campo-formulario {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #222;
+    font-size: 1rem;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+.btn-boton {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+    width: 100%;
+}
+
+.btn-boton:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+/* ===== Detalles del Vehículo ===== */
+.detalles-vehiculo {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalles-vehiculo h2 {
+    font-size: 1.7rem; /* Aumento del tamaño de título */
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Contenedor del Vehículo */
+.contenedor-vehiculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Imagen del Vehículo */
+.contenedor-vehiculo img {
+    width: 100%;
+    max-width: 400px; /* Aumento del tamaño máximo */
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Información del Vehículo */
+.info-vehiculo {
+    width: 100%;
+    text-align: center;
+}
+
+/* Texto dentro de la Información del Vehículo */
+.info-vehiculo p {
+    margin: 8px 0;
+    font-size: 1.5rem; /* Aumento del tamaño de fuente */
+    color: #444;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.info-vehiculo p strong {
+    color: #222;
+    font-weight: 700;
+}
+
+
+.mensaje-exito {
+    color: #f8fcf9;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #0b0c0b;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(40, 167, 69, 0.1);
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Contenedor Principal del Formulario ===== */
+.devolucion-container {
+    max-width: 800px;
+    background: #ffffff;
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* ===== Título del Formulario ===== */
+.devolucion-container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===== Estilos para los Campos del Formulario ===== */
+.devolucion-container .form-group {
+    margin-bottom: 20px;
+}
+
+.devolucion-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.devolucion-container input,
+.devolucion-container textarea,
+.devolucion-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.devolucion-container input:focus,
+.devolucion-container textarea:focus,
+.devolucion-container select:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+/* ===== Grupo de Checkboxes ===== */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado uniforme entre checkboxes */
+    background: #f9f9f9; /* Fondo para el grupo */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ddd; /* Línea sutil alrededor */
+    max-width: 400px; /* Ancho máximo para mantener una estructura compacta */
+    margin: 0 auto; /* Centra el grupo en su contenedor */
+}
+
+.checkbox-group label {
+    font-weight: 400; /* Peso normal del texto */
+    font-size: 16px; /* Tamaño de fuente legible */
+    display: flex; /* Configura el contenedor como flexbox */
+    align-items: center; /* Alineación vertical central */
+    color: #333; /* Color del texto */
+    cursor: pointer; /* Indica interactividad */
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px; /* Espaciado entre el checkbox y el texto */
+    width: 20px; /* Tamaño consistente del checkbox */
+    height: 20px; /* Tamaño consistente del checkbox */
+    accent-color: #007bff; /* Color del checkbox en navegadores modernos */
+}
+
+.checkbox-group label:hover {
+    background: #e6f3ff; /* Fondo al pasar el cursor */
+    border-radius: 3px; /* Resalta la interactividad */
+}
+
+
+/* ===== Botones ===== */
+.btn-primary {
+    display: block;
+    width: 200px; 
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+/* ===== Contenedor Principal ===== */
+.rentas-container {
+    max-width: 1200px;
+    width: 400px; 
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Título Principal ===== */
+.rentas-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* ===== Contenedor de Vehículos ===== */
+.vehi-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+/* ===== Tarjeta de Vehículo ===== */
+.vehi-card {
+    background: #d8d3d3;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    margin: 0 auto 20px;
+}
+
+.vehi-card:hover {
+    transform: scale(1.03);
+}
+
+/* ===== Imagen del Vehículo ===== */
+.vehi-card img {
+    width: 80%;
+    border-radius: 8px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* ===== Información del Vehículo ===== */
+.vehi-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.vehi-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* ===== Formulario ===== */
+.form-container {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ===== Select Estilizado ===== */
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #9e8a8a;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-container select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* ===== Botón para cambiar estado ===== */
+.btn-estado {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-estado:hover {
+    background-color: #0056b3;
+}
+
+/* ===== Mensajes de Error o Éxito ===== */
+.message {
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* ===== Botón para cambiar estado ===== */
+.btn-estado {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-estado:hover {
+    background-color: #0056b3;
+}

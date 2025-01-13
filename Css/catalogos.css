@@ -1,0 +1,440 @@
+/* ===== Fondo de la página ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #868383, #8f8a8a, #666565);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Animación del fondo */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Encabezado ===== */
+header {
+    background: rgba(216, 212, 212, 0.7);
+    color: rgb(8, 8, 8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-buttons button {
+    font-weight: bold; /* Cambia a negrita */
+    padding: 12px 30px;
+    font-size: 18px;
+    color: rgb(12, 12, 12);
+    border: 2px solid white;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-buttons button:hover {
+    font-weight: 900; /* Más grueso al pasar el cursor */
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* ===== Banner ===== */
+.banner {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    margin: 20px auto;
+    width: fit-content;
+    border-radius: 10px;
+    font-size: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Sección de Carrusel ===== */
+.carousel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* ===== Contenedor principal ===== */
+.container {
+    margin-top: 100px;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+/* ===== Filtros ===== */
+.filtros {
+    width: 700px; /* Ancho fijo más estético */
+    background: white;
+    padding: 20px;
+    height: 600px; /* Alto fijo más estético */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.filtros h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filtros .form-group {
+    margin-bottom: 15px;
+}
+
+.filtros .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1rem; /* Tamaño consistente */
+}
+
+.filtros .form-control {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 8px;
+    font-size: 14px; /* Tamaño de fuente ajustado */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ajusta los bordes al contenido */
+}
+
+.filtros .form-control[type="number"] {
+    max-width: 120px; /* Reduce el ancho específico para campos numéricos */
+    margin: 0 auto; /* Centra el campo dentro del contenedor */
+    text-align: center; /* Centra el texto */
+}
+
+.filtros .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    display: block;
+    width: 100%; /* Botón ocupa todo el ancho */
+}
+
+.filtros .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* ===== Catálogo ===== */
+.catalogo {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.catalog-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    opacity: 1;
+    position: relative;
+}
+
+.catalog-item.no-disponible {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.catalog-item:hover {
+    transform: scale(1.05);
+}
+
+.catalog-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.catalog-item h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.catalog-item .price {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.catalog-item .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.catalog-item .btn:hover {
+    background-color: #218838;
+}
+
+/* ===== Pie de página ===== */
+.fixed-footer {
+    background: linear-gradient(135deg, #494848, #747272, #cfcccc);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.footer-text {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-text h2 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.footer-text p {
+    font-size: 1.9rem;
+}
+/* Ajuste en el pie de página */
+.footer-image {
+    flex-shrink: 0;
+    width: 300px; /* Ajusta el ancho de la imagen si es necesario */
+    height: auto; /* Conserva las proporciones */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    margin-left: 0; /* Elimina cualquier margen a la izquierda */
+    padding-left: 70px; /* Ajusta el espacio entre la imagen y el borde izquierdo */
+}
+
+.footer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    transform: translateX(-10px); /* Ajusta la posición de la imagen horizontalmente */
+}
+.container1 {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column; /* Cambia a columna para apilar elementos */
+    gap: 20px;
+    padding: 20px;
+}
+
+.table-container {
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que ocupe el ancho completo del contenedor */
+    box-sizing: border-box;
+}
+
+.table-container h2 {
+    text-align: left;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #c2b4b4; /* Línea decorativa debajo del título */
+    padding-bottom: 5px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #131212;
+    padding: 10px;
+    text-align: center;
+}
+
+.table-container th {
+    background-color: #b9b5b5;
+    font-weight: bold;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #fdf9f9;
+}
+
+.table-container tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-cancelar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #a71d2a;
+}
+/* ===== Contenedor Principal ===== */
+.rent-container {
+    margin-top: 100px; /* Ajustar para que el encabezado no cubra contenido */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Imagen y Detalles del Vehículo */
+.vehicle-details-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 60%;
+}
+
+.vehicle-image {
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.vehicle-details ul li {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Formulario de Reserva */
+.reservation-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+    min-width: 280px;
+}
+
+.reservation-form h2 {
+    margin-bottom: 20px;
+}
+
+.reservation-form .form-group {
+    margin-bottom: 15px;
+}
+
+.reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reservation-form input {
+    width: 100%;
+    max-width: 90%; /* Ajusta para no exceder */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reservation-form p {
+    font-weight: bold;
+}
+
+.btn-confirmar {
+    background-color: #13e243;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-cancelar {
+    background-color: #dc3545;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+}

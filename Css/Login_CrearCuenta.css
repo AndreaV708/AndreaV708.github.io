@@ -1,0 +1,228 @@
+/* ======= ESTILOS GENERALES ======= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* ======= FONDO CON IMÁGENES DIAGONALES ======= */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: flex;
+}
+
+.left-bg, .right-bg {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.left-bg {
+    background-image: url('../ImagenesHome/bg1.jpg');
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+}
+
+.right-bg {
+    background-image: url('../ImagenesHome/bg2.jpg');
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+/* ======= CONTENEDOR DEL FORMULARIO ======= */
+.verification-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* ======= ESTILOS DEL FORMULARIO ======= */
+.verification-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.verification-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.verification-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Botón Google */
+button.google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: #f12121;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+button.google img {
+    height: 20px;
+    width: 20px;
+}
+
+button.google:hover {
+    background-color: #e83535;
+}
+
+/* ======= LINK DE VOLVER Y MENSAJE DE ERROR ======= */
+.verification-container a {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.verification-container a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #d9534f;
+    background-color: #f9d6d5;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* ======= RESPONSIVE ======= */
+@media screen and (max-width: 768px) {
+    .background {
+        flex-direction: column;
+    }
+
+    .left-bg, .right-bg {
+        width: 100%;
+        height: 50%;
+        clip-path: none;
+    }
+
+    .verification-container {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+.veri-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    margin-top: 80px;
+}
+
+/* ======= FORMULARIO ======= */
+.veri-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.veri-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.veri-container button:hover {
+    background-color: #0056b3;
+}
+
+.veri-container a {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.veri-container a:hover {
+    text-decoration: underline;
+}
+
+/* ======= RESPONSIVE ======= */
+@media screen and (max-width: 768px) {
+    .background {
+        flex-direction: column;
+    }
+
+    .left-bg, .right-bg {
+        width: 100%;
+        height: 50%;
+        clip-path: none;
+    }
+
+    .veri-container {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+/* ======= PIE DE PÁGINA ======= */
+.fixed-footer {
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-text {
+    margin-bottom: 10px;
+}
+
+.footer-image img {
+    height: 50px;
+}

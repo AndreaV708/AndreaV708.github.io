@@ -1,0 +1,425 @@
+/* ===== Fondo de la página ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #868383, #8f8a8a, #666565); /* Gradiente en tonos blancos y grises */
+    background-size: 400% 400%; /* Amplitud para el movimiento del fondo */
+    animation: gradientAnimation 15s ease infinite; /* Movimiento dinámico del fondo */
+    font-family: Arial, sans-serif; /* Fuente base */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Deshabilita el desplazamiento horizontal */
+}
+
+/* Animación del fondo */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* ===== Encabezado ===== */
+header {
+    background: rgba(221, 219, 219, 0.7); /* Fondo semi-transparente */
+    color: rgb(8, 8, 8);
+    display: flex;
+    justify-content: space-between; /* Separa los elementos */
+    align-items: center;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Contenedor de la navegación (botones) */
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Estilo de los botones de navegación */
+.nav-buttons button {
+    padding: 12px 30px;  /* Reducido para un botón más delgado */
+    font-size: 18px; /* Ajustado el tamaño de la fuente */
+    color: rgb(22, 21, 21);
+    border: 2px solid white;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-buttons button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Estilo específico para el botón de Inicio de sesión */
+.nav-buttons .login-btn {
+    padding: 10px 20px;  /* Ajustado el padding */
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo transparente con efecto de hover */
+    border: 2px solid white;
+    border-radius: 30px;
+    color: rgb(12, 12, 12);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-buttons .login-btn:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* ===== Contenedor de la presentación ===== */
+.presentation {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    z-index: -1;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Texto superpuesto */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 2%; /* Mueve el texto a la izquierda */
+    transform: translateY(-50%); /* Centrado vertical */
+    text-align: left; /* Alineación del texto a la izquierda */
+    color: white;
+    z-index: 2;
+    max-width: 40%;
+}
+
+.text-overlay h1 {
+    font-size: 2.8rem; /* Reducido el tamaño del título para que se ajuste mejor */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+.text-overlay p {
+    font-size: 1.7rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsivo para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-buttons {
+        gap: 15px;
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .nav-buttons button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .text-overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .text-overlay p {
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes fade-in-image {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes fade-out-image {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+}
+/* Pie de página */
+.fixed-footer {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #494848, #747272, #cfcccc);
+    color: white;
+    padding: 10px 10px; /* Reducido el espacio superior e inferior */
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido hacia la izquierda */
+    align-items: center; /* Alinea verticalmente en el centro */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    height: auto; /* Ajusta automáticamente la altura al contenido */
+}
+
+/* Texto del pie de página */
+.footer-text {
+    flex: 1; /* Ocupa todo el espacio necesario */
+    text-align: left;
+    line-height: 1.2; /* Reduce la altura de línea para disminuir el espacio entre líneas */
+    margin-right: 20px; /* Espaciado entre texto e imagen */
+}
+
+.footer-text h2 {
+    font-size: 2.0rem; /* Ajusta el tamaño del título si es necesario */
+    font-weight: bold;
+    margin: 0 0 2px 0; /* Reduce el margen inferior */
+    text-transform: uppercase;
+}
+
+.footer-text p {
+    font-size: 1.5rem;
+    margin: 3px 0; /* Reduce el margen entre párrafos */
+}
+
+/* Ajuste en el pie de página */
+.footer-image {
+    flex-shrink: 0;
+    width: 300px; /* Ajusta el ancho de la imagen si es necesario */
+    height: auto; /* Conserva las proporciones */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    margin-left: 0; /* Elimina cualquier margen a la izquierda */
+    padding-left: 70px; /* Ajusta el espacio entre la imagen y el borde izquierdo */
+}
+
+/* Si es necesario ajustar aún más */
+.footer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    transform: translateX(-10px); /* Ajusta la posición de la imagen horizontalmente */
+}
+/* ===== SECCIÓN "¿POR QUÉ ELEGIRNOS?" ===== */
+.why-choose-us {
+    text-align: center;
+    padding: 60px 20px;
+    background: #aaa3a3;
+}
+
+.why-choose-us h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Estilo de cada razón */
+.why-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background: rgb(199, 191, 191);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Invertir orden en la segunda razón */
+.why-item.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Contenedor de texto */
+.why-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.why-text h3 {
+    font-size: 1.8rem;
+    color: #0c0c0c;
+    margin-bottom: 10px;
+}
+
+.why-text p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Contenedor de imagen */
+.why-image {
+    flex: 1;
+    text-align: center;
+}
+
+.why-image img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== SECCIÓN "ELIGE UN AUTO" ===== */
+.choose-car {
+    text-align: center;
+    padding: 60px 20px;
+    background: #b3a6a6;
+}
+
+.choose-car h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* ===== Estilos de la lista de autos ===== */
+.car-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+/* ===== Tarjetas de autos ===== */
+.car-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen de los autos */
+.car-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botón de reservar */
+.reserve-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsivo */
+@media screen and (max-width: 900px) {
+    .why-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .why-item.reverse {
+        flex-direction: column;
+    }
+
+    .why-text, .why-image {
+        flex: none;
+        width: 100%;
+    }
+}

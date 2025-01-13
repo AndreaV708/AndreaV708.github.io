@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler De vehículos</title>
+    <link rel="stylesheet" href="Css/home.css"> <!-- Asegúrate de enlazar el archivo CSS -->
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="ImagenesHome/logo.png" alt="Logo de CarGo">
+            <h1>CarGo Alquiler de Vehículos</h1>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="location.href='php/login.php'">Iniciar Sesión</button>
+            <button class="register-btn" onclick="location.href='php/crearCuenta.php'">Registrar</button>
+        </div>
+    </header>
+    
+    <!-- Presentación -->
+    <section class="presentation">
+        <div class="image-container">
+            <img id="presentation-image" src="ImagenesHome/portada.png" alt="Imagen de fondo"> <!-- ID agregado -->
+            <div class="text-overlay">
+                <h1 id="presentation-title">Bienvenido a CarGo</h1> <!-- ID agregado -->
+                <p id="presentation-description">Alquila el vehículo que más se adapte a ti.</p> <!-- ID agregado -->
+            </div>
+        </div>
+        
+        <!-- Flechas de navegación -->
+        <div class="navigation-arrows">
+            <button id="left-arrow" class="arrow">◀</button>
+            <button id="right-arrow" class="arrow">▶</button>
+        </div>
+    </section>
+
+    <!-- 🔹 Sección "¿Por qué elegirnos?" -->
+    <section class="why-choose-us">
+        <h2>¿Por qué elegirnos?</h2>
+
+        <!-- Primera razón -->
+        <div class="why-item">
+            <div class="why-text">
+                <h3>Variedad y Calidad</h3>
+                <p>Contamos con una amplia variedad de vehículos de diferentes gamas y marcas, asegurando siempre la mejor calidad y seguridad.</p>
+            </div>
+            <div class="why-image">
+                <img src="ImagenesHome/deportivo.png" alt="Auto de lujo">
+            </div>
+        </div>
+
+        <!-- Segunda razón -->
+        <div class="why-item">
+            <div class="why-image">
+                <img src="ImagenesHome/normal.png" alt="Auto deportivo">
+            </div>
+            <div class="why-text">
+                <h3>Precios Competitivos</h3>
+                <p>Ofrecemos los mejores precios del mercado con opciones flexibles de pago y descuentos especiales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="choose-car">
+        <h2>Elige un Auto</h2>
+        <div class="car-list">
+            <!-- Aquí se mostrarán los autos dinámicamente con autos.js -->
+        </div>
+    </section>
+    
+
+    <!-- Pie de página -->
+    <footer class="fixed-footer">
+        <div class="footer-text">
+            <h2>¡Explora más!</h2>
+            <p>Embárcate en la mejor experiencia de alquiler.</p>
+            <p>© 2024 CarGo! Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-image">
+            <img src="ImagenesHome/piePag.png" alt="Logo">
+        </div>
+    </footer>
+
+    <script src="presentacion.js"></script> <!-- Asegúrate de enlazar el archivo JS correctamente -->
+    <script src="php/autos.js"></script> <!-- Aquí se enlaza el archivo autos.js -->
+</body>
+</html>
